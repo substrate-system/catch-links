@@ -14,7 +14,7 @@ export function CatchLinks (root:HTMLElement, cb:(href:string) => void) {
         let anchor:null|HTMLElement = null
         for (
             let n = (ev.target as HTMLElement|null);
-            n!.parentNode;
+            n && n!.parentNode;
             n = n!.parentElement
         ) {
             if (n!.nodeName === 'A') {
