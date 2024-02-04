@@ -1,24 +1,48 @@
-# template ts browser
-![tests](https://github.com/nichoth/template-ts-browser/actions/workflows/nodejs.yml/badge.svg)
-[![types](https://img.shields.io/npm/types/@nichoth/**placeholder**)](README.md)
-[![module](https://img.shields.io/badge/module-ESM-blue)](README.md)
-[![license](https://img.shields.io/badge/license-MIT-brightgreen)](LICENSE)
+# catch links
+[![dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg?style=flat-square)](package.json)
+[![types](https://img.shields.io/npm/types/@nichoth/catch-links?style=flat-square)](README.md)
+[![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
+[![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-A template for typescript *dependency* modules that run in a browser environment. Uses `tape-run` for tests in a browser. See [template-ts](https://github.com/nichoth/template-ts) for the same thing but targeting Node.
+Like the classic [@substack module](https://www.npmjs.com/package/catch-links), but updated.
+
+Intercept local link clicks on a page, for client-side pushState UIs.
+
+## install
+```
+npm i -S @nichoth/catch-links
+```
 
 ## use
-1. Use the template button in github. Or clone this then `rm -rf .git && git init`. Then `npm i && npm init`.
 
-2. Edit the source code in `src/index.ts`.
+### common JS
+```js
+const catchLinks = require('@nichoth/catch-links').default
+```
 
-## featuring
+### ESM
+```js
+import CatchLinks from '@nichoth/catch-links'
+```
 
-* compile the source to both ESM and CJS format, and put compiled files in `dist`.
-* ignore `dist` and `*.js` in git, but don't ignore them in npm. That way we don't commit any compiled code to git, but it is available to consumers.
-* use npm's `prepublishOnly` hook to compile the code before publishing to npm.
-* use `exports` field in `package.json` to make sure the right format is used by consumers.
-* `preversion` npm hook -- lint via `standardx`.
-* `postversion` npm hook -- `git push && git push --tags && npm publish`
-* eslint via [standardx](https://www.npmjs.com/package/standardx) -- `npm run lint`
-* tests run in a browser environment via `tape-run` -- see `npm test`. Includes `tap` testing tools -- [tapzero](https://github.com/nichoth/tapzero) and [tap-arc](https://www.npmjs.com/package/tap-arc)
-* CI via github actions
+## example
+Given this HTML,
+```html
+<body>
+    <a id="local-link" href="/foo">local</a>
+    <a href="https://www.npmjs.com/" id="remote-link">remote</a>
+</body>
+```
+
+Use this JS:
+```js
+import CatchLinks from '@nichoth/catch-links'
+
+// given a click on `#local-link`
+CatchLinks(document.body, function onLinkClick (href) {
+    // this will not be called on click to #remote-link
+
+    console.log('href', href)
+    // => '/foo'
+})
+```
