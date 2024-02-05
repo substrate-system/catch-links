@@ -1,6 +1,6 @@
 {
   "name": "@nichoth/catch-links",
-  "description": "Intercept click to local links",
+  "description": "Intercept local link clicks",
   "type": "module",
   "version": "0.2.2",
   "main": "dist/index.js",
