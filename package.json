@@ -1,5 +1,6 @@
 {
   "name": "@nichoth/catch-links",
+  "description": "",
   "type": "module",
   "version": "0.2.2",
   "main": "dist/index.js",
@@ -44,6 +45,10 @@
         "./dist/*"
       ]
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nichoth/catch-links.git"
   },
   "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
   "license": "MIT"
