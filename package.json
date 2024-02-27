@@ -2,7 +2,7 @@
   "name": "@nichoth/catch-links",
   "description": "Intercept local link clicks",
   "type": "module",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint \"./**/*.{ts,js}\"",
