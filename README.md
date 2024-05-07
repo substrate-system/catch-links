@@ -1,6 +1,6 @@
 # catch links
 [![dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg?style=flat-square)](package.json)
-[![types](https://img.shields.io/npm/types/@nichoth/catch-links?style=flat-square)](README.md)
+[![types](https://img.shields.io/npm/types/@bicycle-codes/catch-links?style=flat-square)](README.md)
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
@@ -9,20 +9,20 @@ Like the classic [@substack module](https://www.npmjs.com/package/catch-links), 
 Intercept local link clicks on a page, for client-side pushState UIs.
 
 ## install
-```
-npm i -S @nichoth/catch-links
+```sh
+npm i -S @bicycle-codes/catch-links
 ```
 
 ## use
 
 ### common JS
 ```js
-const catchLinks = require('@nichoth/catch-links').default
+const catchLinks = require('@bicycle-codes/catch-links').default
 ```
 
 ### ESM
 ```js
-import CatchLinks from '@nichoth/catch-links'
+import CatchLinks from '@bicycle-codes/catch-links'
 ```
 
 ## example
@@ -36,7 +36,7 @@ Given this HTML,
 
 Use this JS:
 ```js
-import CatchLinks from '@nichoth/catch-links'
+import CatchLinks from '@bicycle-codes/catch-links'
 
 // given a click on `#local-link`
 CatchLinks(document.body, function onLinkClick (href) {
