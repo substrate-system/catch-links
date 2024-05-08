@@ -6,7 +6,6 @@
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint \"./**/*.{ts,js}\"",
-    "build-tests": "esbuild test/index.ts --target=es2020 --bundle --keep-names > test/test-bundle.js",
     "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-cjs && npm run build-esm",
     "build-cjs": "esbuild src/*.ts --format=cjs --keep-names --tsconfig=tsconfig.build.json --outdir=./dist --out-extension:.js=.cjs --sourcemap=inline",
     "build-esm": "esbuild src/*.ts --format=esm --keep-names --tsconfig=tsconfig.build.json --outdir=./dist --sourcemap=inline",

@@ -8,6 +8,8 @@ Like the classic [@substack module](https://www.npmjs.com/package/catch-links), 
 
 Intercept local link clicks on a page, for client-side pushState UIs.
 
+This is used as a part of [route-event](https://github.com/bicycle-codes/route-event). That is the recommended way to consume this.
+
 ## install
 ```sh
 npm i -S @bicycle-codes/catch-links
