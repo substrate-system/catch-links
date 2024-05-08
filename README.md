@@ -1,7 +1,8 @@
 # catch links
-[![dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg?style=flat-square)](package.json)
+[![tests](https://github.com/bicycle-codes/catch-links/actions/workflows/nodejs.yml/badge.svg)](https://github.com/bicycle-codes/catch-links/actions/workflows/nodejs.yml)
 [![types](https://img.shields.io/npm/types/@bicycle-codes/catch-links?style=flat-square)](README.md)
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
+[![dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg?style=flat-square)](package.json)
 [![license](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
 Like the classic [@substack module](https://www.npmjs.com/package/catch-links), but updated.
@@ -28,6 +29,7 @@ import CatchLinks from '@bicycle-codes/catch-links'
 ```
 
 ## example
+
 Given this HTML,
 ```html
 <body>
