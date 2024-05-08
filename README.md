@@ -1,5 +1,6 @@
 # catch links
 [![tests](https://github.com/bicycle-codes/catch-links/actions/workflows/nodejs.yml/badge.svg)](https://github.com/bicycle-codes/catch-links/actions/workflows/nodejs.yml)
+[![Socket Badge](https://socket.dev/api/badge/npm/package/@bicycle-codes/catch-links)](https://socket.dev/npm/package/@bicycle-codes/catch-links)
 [![types](https://img.shields.io/npm/types/@bicycle-codes/catch-links?style=flat-square)](README.md)
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
 [![dependencies](https://img.shields.io/badge/dependencies-zero-brightgreen.svg?style=flat-square)](package.json)
