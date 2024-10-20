@@ -26,7 +26,7 @@ export function CatchLinks (root:HTMLElement, cb:(href:string) => void) {
 
         const url = new URL(anchor.getAttribute('href')!, location.origin)
 
-        if (url.host && url.host !== location.host) return true
+        if (url.host !== location.host) return true
 
         //
         // handle the link locally
