@@ -1,5 +1,5 @@
 {
-  "name": "@bicycle-codes/catch-links",
+  "name": "@substrate-system/catch-links",
   "description": "Intercept local link clicks",
   "type": "module",
   "version": "0.2.9",
@@ -54,7 +54,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bicycle-codes/catch-links.git"
+    "url": "git+https://github.com/substrate-system/catch-links.git"
   },
   "author": "nichoth <nichoth@gmail.com> (https://nichoth.com)",
   "license": "MIT"
