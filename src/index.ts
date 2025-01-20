@@ -4,7 +4,9 @@
  * @param {HTMLElement} root The root element to listen on.
  * @param {(href:string)=>void} cb The function to call on link click.
  */
-export function CatchLinks (root:HTMLElement, cb:(href:string) => void) {
+export function CatchLinks (root:HTMLElement, cb:(href:string) => void, opts:{
+    handleAnchor?:boolean|((href:string)=>boolean)
+} = { handleAnchor: true }) {
     root.addEventListener('click', function (ev:MouseEvent) {
         if (ev.altKey || ev.ctrlKey || ev.metaKey || ev.shiftKey ||
             ev.defaultPrevented) {
@@ -31,10 +33,30 @@ export function CatchLinks (root:HTMLElement, cb:(href:string) => void) {
         //
         // handle the link locally
         //
-        ev.preventDefault()
         const urlPath = url.pathname + url.search
-        cb(resolve(location.pathname, urlPath || '') + (url.hash || ''))
-        return false
+        if (url.href.includes('#')) {
+            if (typeof opts.handleAnchor === 'function') {
+                // do we want to handle this?
+                const handle = opts.handleAnchor(url.href)
+                if (handle) {
+                    ev.preventDefault()
+                    cb(resolve(location.pathname, urlPath || '') +
+                        (url.hash || ''))
+                    return false
+                }
+            } else {
+                if (opts.handleAnchor) {
+                    ev.preventDefault()
+                    cb(resolve(location.pathname, urlPath || '') +
+                        (url.hash || ''))
+                    return false
+                }
+            }
+        } else {
+            ev.preventDefault()
+            cb(resolve(location.pathname, urlPath || '') + (url.hash || ''))
+            return false
+        }
     })
 }
 

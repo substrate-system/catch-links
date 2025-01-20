@@ -3,10 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
     <title>Example</title>
 </head>
 <body>
-    <div id="root"></div>
-    <script type="module" src="./index.tsx"></script>
+    <div id="root">
+      <ul>
+        <li><a href="/aaa">local link, startng with /</a></li>
+        <li><a href="http://exmaple.com">remote link</a></li>
+        <li><a href="#aaa">local link, to element #aaa</a></li>
+        <li><a href="#bbbbb">bbbbb</a></li>
+      </ul>
+    </div>
+
+    <div id="aaa">
+      element aaa
+    </div>
+
+    <div id="bbbbb">element bbbbbbbbbbbbbbb</div>
+
+    <script type="module" src="./index.ts"></script>
   </body>
 </html>
