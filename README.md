@@ -1,5 +1,5 @@
 # catch links
-[![tests](https://github.com/substrate-system/catch-links/actions/workflows/nodejs.yml/badge.svg)](https://github.com/substrate-system/catch-links/actions/workflows/nodejs.yml)
+[![tests](https://img.shields.io/github/actions/workflow/status/substrate-system/catch-links/nodejs.yml?style=flat-square)](https://github.com/substrate-system/catch-links/actions/workflows/nodejs.yml)
 [![Socket Badge](https://socket.dev/api/badge/npm/package/@substrate-system/catch-links)](https://socket.dev/npm/package/@substrate-system/catch-links)
 [![types](https://img.shields.io/npm/types/@substrate-system/catch-links?style=flat-square)](README.md)
 [![module](https://img.shields.io/badge/module-ESM%2FCJS-blue?style=flat-square)](README.md)
