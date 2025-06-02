@@ -2,7 +2,7 @@
   "name": "@substrate-system/catch-links",
   "description": "Intercept local link clicks",
   "type": "module",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "main": "dist/index.js",
   "scripts": {
     "lint": "eslint \"./**/*.{ts,js}\"",
@@ -13,6 +13,7 @@
     "start": "vite",
     "test": "npm run build && npm run build-tests && npm run test-tape-run",
     "test-tape-run": "cat test/index.html | tape-run --input=html --static=test | tap-spec",
+    "toc": "markdown-toc --maxdepth 3 -i README.md",
     "preversion": "npm run lint",
     "version": "npm run toc && auto-changelog -p --template keepachangelog --breaking-pattern 'BREAKING CHANGE:' && git add CHANGELOG.md README.md",
     "postversion": "git push --follow-tags && npm publish",
