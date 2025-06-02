@@ -14,6 +14,11 @@ Intercept local link clicks on a page, for client-side pushState UIs.
 
 This is used as a part of [route-event](https://github.com/substrate-system/route-event). That is the recommended way to consume this.
 
+<details><summary><h2>Contents</h2></summary>
+<!-- toc -->
+</details>
+
+
 ## install
 ```sh
 npm i -S @substrate-system/catch-links
