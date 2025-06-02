@@ -1,14 +1,33 @@
 import CatchLinks from '../src/index.js'
-import { test } from '@bicycle-codes/tapzero'
+import { click } from '@substrate-system/dom'
+import { test } from '@substrate-system/tapzero'
 
-test('example', async t => {
+test('Catch links defaults', t => {
     t.plan(1)
 
-    CatchLinks(document.body, function onLinkClick (href) {
+    const unlisten = CatchLinks(document.body, function onLinkClick (href) {
         t.equal(href, '/hello', 'should callback with the right URL')
-        console.log('href', href)
     })
 
     document.getElementById('hello')?.click()
     document.getElementById('example')?.click()
+
+    unlisten()
+})
+
+test('handle anchor function', async t => {
+    t.plan(1)
+
+    CatchLinks(document.body, (href) => {
+        t.equal(href, '/foo')
+    }, {
+        handleLink: (href) => {
+            if (href.includes('foo')) return true
+            return false
+        }
+    })
+
+    click('#hello')
+    click('#foo')
+    click('#example')
 })

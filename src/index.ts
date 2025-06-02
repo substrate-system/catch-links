@@ -4,10 +4,18 @@
  * @param {HTMLElement} root The root element to listen on.
  * @param {(href:string)=>void} cb The function to call on link click.
  */
-export function CatchLinks (root:HTMLElement, cb:(href:string) => void, opts:{
-    handleAnchor?:boolean|((href:string)=>boolean)
-} = { handleAnchor: true }) {
-    root.addEventListener('click', function (ev:MouseEvent) {
+export function CatchLinks (
+    root:HTMLElement,
+    cb:(href:string) => void,
+    opts:{
+        handleAnchor?:boolean|((href:string)=>boolean),
+        handleLink?:(href:string)=>boolean
+    } = { handleAnchor: true },
+):()=>void {
+    root.addEventListener('click', clicker)
+
+    function clicker (ev:MouseEvent) {
+        // if command click, do nothing
         if (ev.altKey || ev.ctrlKey || ev.metaKey || ev.shiftKey ||
             ev.defaultPrevented) {
             return true
@@ -24,16 +32,22 @@ export function CatchLinks (root:HTMLElement, cb:(href:string) => void, opts:{
                 break
             }
         }
+
+        // if not anchor, do nothing
         if (!anchor) return true
 
         const url = new URL(anchor.getAttribute('href')!, location.origin)
+        const urlPath = url.pathname + url.search
 
+        // if not local, do nothing
         if (url.host !== location.host) return true
 
-        //
-        // handle the link locally
-        //
-        const urlPath = url.pathname + url.search
+        // if we were given a function to check, call it
+        if (opts.handleLink) {
+            if (!opts.handleLink(urlPath)) return
+        }
+
+        // else, handle the click
         if (url.href.includes('#')) {
             if (typeof opts.handleAnchor === 'function') {
                 // do we want to handle this?
@@ -57,7 +71,11 @@ export function CatchLinks (root:HTMLElement, cb:(href:string) => void, opts:{
             cb(resolve(location.pathname, urlPath || '') + (url.hash || ''))
             return false
         }
-    })
+    }
+
+    return function unlisten () {
+        root.removeEventListener('click', clicker)
+    }
 }
 
 CatchLinks.resolve = resolve
@@ -68,7 +86,7 @@ export default CatchLinks
  * @param {string} from
  * @param {string} to
  */
-export function resolve (from, to) {
+export function resolve (from:string, to:string):string {
     const fromArr = from.split('/')
         .map(path => path.replaceAll('/', ''))
         .filter(Boolean)
