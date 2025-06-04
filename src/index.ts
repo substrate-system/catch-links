@@ -9,12 +9,12 @@ export function CatchLinks (
     cb:(href:string) => void,
     opts:{
         handleAnchor?:boolean|((href:string)=>boolean),
-        handleLink?:(href:string)=>boolean
+        handleLink?:(href:string)=>boolean,
     } = { handleAnchor: true },
 ):()=>void {
-    root.addEventListener('click', clicker)
+    root.addEventListener('click', onClick)
 
-    function clicker (ev:MouseEvent) {
+    function onClick (ev:MouseEvent) {
         // if command click, do nothing
         if (ev.altKey || ev.ctrlKey || ev.metaKey || ev.shiftKey ||
             ev.defaultPrevented) {
@@ -74,7 +74,7 @@ export function CatchLinks (
     }
 
     return function unlisten () {
-        root.removeEventListener('click', clicker)
+        root.removeEventListener('click', onClick)
     }
 }
 
